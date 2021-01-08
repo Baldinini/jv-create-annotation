@@ -6,7 +6,7 @@ import core.basesyntax.model.Bet;
 import java.util.Scanner;
 
 public class ConsoleHandler {
-    private static final BetDao betDao = new BetDaoImpl();
+    private BetDao betDao = new BetDaoImpl();
 
     public void handle() {
         Scanner scanner = new Scanner(System.in);
