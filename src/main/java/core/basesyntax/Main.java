@@ -11,11 +11,11 @@ public class Main {
     public static void main(String[] args) throws InvocationTargetException,
             NoSuchMethodException, InstantiationException, IllegalAccessException {
         ConsoleHandler handler = (ConsoleHandler) Injector.getInstance(ConsoleHandler.class);
-        System.out.println("Enter value and risk for your bet");
+        System.out.println("Enter value and risk for your bet \n(Enter 'stop' for exit)");
         handler.handle();
 
         ConsoleHandler user = (ConsoleHandler) Injector.getInstance(ConsoleHandler.class);
-        System.out.println("Enter your name, last name and age");
+        System.out.println("Enter your name, last name and age \n(Enter 'stop' for exit)");
         user.handleUser();
 
         BetDao betDao = Factory.getBetDao();

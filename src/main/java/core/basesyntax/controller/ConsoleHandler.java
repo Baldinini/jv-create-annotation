@@ -8,6 +8,7 @@ import core.basesyntax.model.User;
 import java.util.Scanner;
 
 public class ConsoleHandler {
+    public static final String WHITESPACE = " ";
     @Inject
     private BetDao betDao;
     @Inject
@@ -23,7 +24,7 @@ public class ConsoleHandler {
             }
             Bet bet = null;
             try {
-                String[] betData = command.split(" ");
+                String[] betData = command.split(WHITESPACE);
                 int value = Integer.parseInt(betData[0]);
                 double risk = Double.parseDouble(betData[1]);
                 bet = new Bet(value, risk);
@@ -47,7 +48,7 @@ public class ConsoleHandler {
             }
             User user = null;
             try {
-                String[] betData = command.split(" ");
+                String[] betData = command.split(WHITESPACE);
                 String firstName = betData[0];
                 String lastName = betData[1];
                 int age = Integer.parseInt(betData[2]);
