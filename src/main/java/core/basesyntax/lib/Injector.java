@@ -19,7 +19,7 @@ public class Injector {
         Field[] declaredFields = clazz.getDeclaredFields();
 
         for (Field field : declaredFields) {
-            if (field.getAnnotation(Inject.class) != null) {
+            if (field.isAnnotationPresent(Inject.class)) {
                 field.setAccessible(true);
                 Object value = null;
                 if (field.getType().equals(BetDao.class)) {
@@ -28,7 +28,8 @@ public class Injector {
                     value = Factory.getUserDao();
                 }
                 if (value != null && !value.getClass().isAnnotationPresent(Dao.class)) {
-                    throw new AnnotationException("Your class doesn't have annotation @Dao");
+                    throw new AnnotationException("Your class " + value.getClass()
+                            + " doesn't have annotation @Dao");
                 }
                 field.set(instance, value);
             }
